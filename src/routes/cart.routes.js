@@ -33,7 +33,6 @@ cartRoutes.post("/", async (req, res) => {
   
     
     try {
-      const pid = uuid();
       const updatedCart = await cartService.addProduct({ cartId: cid, productId: pid });
       if (!updatedCart) {
         return res.status(404).json({ message: "Cart or product not found" });
