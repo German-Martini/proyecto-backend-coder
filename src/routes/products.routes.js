@@ -6,7 +6,7 @@ import { productService } from '../services/product.service.js';
 export const productRoutes = Router();
 
 productRoutes.get("/", async (req, res) => {
-  const products = await productService.getAll();
+   const products = await productService.getAll();
 
   res.status(200).json(products);
 });
@@ -32,7 +32,7 @@ productRoutes.post("/", async (req, res) => {
 
   try {
     const product = await productService.create({ title, description, code, price, status, stock, category  });
-
+    
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
