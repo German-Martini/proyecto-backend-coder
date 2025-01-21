@@ -1,9 +1,9 @@
-<h1>Home page</h1>
+<h1 class="d-flex justify-content-center">Home page</h1>
 
-<ul>
+<ul class="list-group">
     {{#each products}}    
-        <li>
-            {{this.name}} - {{this.price}}
+        <li class="list-group-item">
+            {{this.title}} - {{this.price}}
         </li>    
     {{/each}}
 </ul>

@@ -1,0 +1,18 @@
+### GET Products
+
+GET http://localhost:5000/api/products
+
+### POST Products
+
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "title": "Cuaderno A4",
+    "description": "Cuaderno rayado tamaño A4 con 80 hojas",
+    "code": "CUA123",
+    "price": 450,
+    "status": true,
+    "stock": 100,
+    "category": "Papelería"
+}

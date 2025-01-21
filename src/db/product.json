@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "id": "755e6fe9-6176-4934-ba7d-3d8e95e5ae08",
+    "title": "Cuaderno A4",
+    "description": "Cuaderno rayado tamaño A4 con 80 hojas",
+    "code": "CUA123",
+    "price": 450,
+    "status": true,
+    "stock": 100,
+    "category": "Papelería"
+  },
+  {
+    "id": "b3edf801-fddb-4171-ab6a-1bb3ff513bfe",
+    "title": "Lápiz HB",
+    "description": "Lápiz negro con goma de borrar",
+    "code": "LAP456",
+    "price": 75,
+    "status": true,
+    "stock": 200,
+    "category": "Escritura"
+  },
+  {
+    "id": "60491148-4474-4dc0-99a0-0684c666f663",
+    "title": "Cartuchera",
+    "description": "Cartuchera escolar mediana con compartimentos",
+    "code": "CAR789",
+    "price": 950,
+    "status": true,
+    "stock": 50,
+    "category": "Accesorios"
+  },
+  {
+    "id": "dac73d36-9493-44ef-a9d2-9bb4efaad87d",
+    "title": "Resaltador Amarillo",
+    "description": "Resaltador amarillo fluorescente",
+    "code": "RES101",
+    "price": 150,
+    "status": true,
+    "stock": 120,
+    "category": "Escritura"
+  }
+]

@@ -53,6 +53,8 @@ class ProductService {
     try {
       await this.saveOnFile();
 
+      io.emit("productAdded", products);
+
       return products;
     } catch (error) {
       console.log(error);
