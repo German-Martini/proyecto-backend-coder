@@ -1,12 +1,17 @@
 import { Router } from "express";
-import { productService } from "../services/product.service.js";
+import { productModel } from "../models/product.model.js";
 
 export const viewsRouter = Router();
 
 viewsRouter.get("/", async (req, res) => {
-    const products = await productService.getAll();
-    res.render("home", { products });
+    try {
+        const products = await productModel.find();
+        res.render("home", { products });
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los productos" });
+    }
 });
+   
 
 viewsRouter.get("/realtime", (req, res) => {
     res.render("realtimeProducts");

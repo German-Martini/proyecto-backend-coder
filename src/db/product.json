@@ -1,6 +1,5 @@
 [
   {
-    "id": "755e6fe9-6176-4934-ba7d-3d8e95e5ae08",
     "title": "Cuaderno A4",
     "description": "Cuaderno rayado tamaño A4 con 80 hojas",
     "code": "CUA123",
@@ -10,7 +9,6 @@
     "category": "Papelería"
   },
   {
-    "id": "b3edf801-fddb-4171-ab6a-1bb3ff513bfe",
     "title": "Lápiz HB",
     "description": "Lápiz negro con goma de borrar",
     "code": "LAP456",
@@ -20,7 +18,6 @@
     "category": "Escritura"
   },
   {
-    "id": "60491148-4474-4dc0-99a0-0684c666f663",
     "title": "Cartuchera",
     "description": "Cartuchera escolar mediana con compartimentos",
     "code": "CAR789",
@@ -30,7 +27,6 @@
     "category": "Accesorios"
   },
   {
-    "id": "dac73d36-9493-44ef-a9d2-9bb4efaad87d",
     "title": "Resaltador Amarillo",
     "description": "Resaltador amarillo fluorescente",
     "code": "RES101",
@@ -38,5 +34,239 @@
     "status": true,
     "stock": 120,
     "category": "Escritura"
+  },
+  {
+    "title": "Goma de borrar",
+    "description": "Goma de borrar blanca para lápiz",
+    "code": "GOM303",
+    "price": 50,
+    "status": true,
+    "stock": 300,
+    "category": "Escritura"
+  },
+  {
+    "title": "Cuaderno A4",
+    "description": "Cuaderno rayado tamaño A4 con 80 hojas",
+    "code": "CUA123",
+    "price": 450,
+    "status": true,
+    "stock": 100,
+    "category": "Papelería"
+  },
+  {
+    "title": "Lapicera Gel",
+    "description": "Lapicera de gel color azul de trazo fino",
+    "code": "LPG456",
+    "price": 150,
+    "status": true,
+    "stock": 200,
+    "category": "Escritura"
+  },
+  {
+    "title": "Resaltador Fluorescente",
+    "description": "Resaltador color amarillo de punta biselada",
+    "code": "RES789",
+    "price": 180,
+    "status": true,
+    "stock": 150,
+    "category": "Escritura"
+  },
+  {
+    "title": "Carpeta Plástica",
+    "description": "Carpeta tamaño oficio con broche metálico",
+    "code": "CAR321",
+    "price": 300,
+    "status": true,
+    "stock": 75,
+    "category": "Organización"
+  },
+  {
+    "title": "Bloc de Notas Adhesivas",
+    "description": "Bloc de notas adhesivas de 100 hojas, color neón",
+    "code": "BNA654",
+    "price": 220,
+    "status": true,
+    "stock": 120,
+    "category": "Papelería"
+  },
+  {
+    "title": "Regla de 30 cm",
+    "description": "Regla de plástico transparente de 30 cm",
+    "code": "REG987",
+    "price": 90,
+    "status": true,
+    "stock": 180,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Marcador Permanente",
+    "description": "Marcador negro de tinta permanente",
+    "code": "MPM112",
+    "price": 160,
+    "status": true,
+    "stock": 140,
+    "category": "Escritura"
+  },
+  {
+    "title": "Tijera Escolar",
+    "description": "Tijera con punta redonda para uso escolar",
+    "code": "TIJ334",
+    "price": 250,
+    "status": true,
+    "stock": 90,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Pegamento en Barra",
+    "description": "Pegamento sólido de 21 gramos",
+    "code": "PEB556",
+    "price": 130,
+    "status": true,
+    "stock": 160,
+    "category": "Adhesivos"
+  },
+  {
+    "title": "Compás Metálico",
+    "description": "Compás de precisión con punta metálica",
+    "code": "COM778",
+    "price": 350,
+    "status": true,
+    "stock": 50,
+    "category": "Instrumentos"
+  },
+  {
+    "title": "Calculadora Científica",
+    "description": "Calculadora científica con pantalla de 2 líneas",
+    "code": "CAL990",
+    "price": 1500,
+    "status": true,
+    "stock": 30,
+    "category": "Electrónica"
+  },
+  {
+    "title": "Papel Bond A4",
+    "description": "Resma de 500 hojas de papel bond tamaño A4",
+    "code": "PBA001",
+    "price": 1200,
+    "status": true,
+    "stock": 85,
+    "category": "Papelería"
+  },
+  {
+    "title": "Bolígrafo Retráctil",
+    "description": "Bolígrafo retráctil tinta azul de 0.7 mm",
+    "code": "BOL223",
+    "price": 100,
+    "status": true,
+    "stock": 300,
+    "category": "Escritura"
+  },
+  {
+    "title": "Cinta Adhesiva Transparente",
+    "description": "Cinta adhesiva de 48 mm x 50 m",
+    "code": "CAT445",
+    "price": 200,
+    "status": true,
+    "stock": 110,
+    "category": "Adhesivos"
+  },
+  {
+    "title": "Cuaderno Espiral",
+    "description": "Cuaderno espiral tamaño carta con 100 hojas",
+    "code": "CUE667",
+    "price": 480,
+    "status": true,
+    "stock": 130,
+    "category": "Papelería"
+  },
+  {
+    "title": "Goma de Borrar",
+    "description": "Goma blanca para lápiz y tinta",
+    "code": "GOM889",
+    "price": 80,
+    "status": true,
+    "stock": 250,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Archivador de Palanca",
+    "description": "Archivador de palanca tamaño oficio",
+    "code": "ARP111",
+    "price": 600,
+    "status": true,
+    "stock": 70,
+    "category": "Organización"
+  },
+  {
+    "title": "Sobre Manila",
+    "description": "Sobre tamaño oficio con cierre autoadhesivo",
+    "code": "SOM333",
+    "price": 50,
+    "status": true,
+    "stock": 500,
+    "category": "Papelería"
+  },
+  {
+    "title": "Marcador para Pizarra",
+    "description": "Marcador de pizarra blanca color negro",
+    "code": "MPP555",
+    "price": 170,
+    "status": true,
+    "stock": 140,
+    "category": "Escritura"
+  },
+  {
+    "title": "Carpeta de Anillas",
+    "description": "Carpeta tamaño A4 con 4 anillas metálicas",
+    "code": "CAA777",
+    "price": 350,
+    "status": true,
+    "stock": 95,
+    "category": "Organización"
+  },
+  {
+    "title": "Clip Metálico",
+    "description": "Caja de 100 clips metálicos tamaño grande",
+    "code": "CLP999",
+    "price": 120,
+    "status": true,
+    "stock": 220,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Papel Fotográfico",
+    "description": "Papel fotográfico brillante tamaño A4",
+    "code": "PFO002",
+    "price": 900,
+    "status": true,
+    "stock": 60,
+    "category": "Papelería"
+  },
+  {
+    "title": "Cúter Retráctil",
+    "description": "Cúter con hoja retráctil y mango antideslizante",
+    "code": "CUT004",
+    "price": 190,
+    "status": true,
+    "stock": 130,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Estuche Escolar",
+    "description": "Estuche de tela con cierre para útiles escolares",
+    "code": "EST006",
+    "price": 320,
+    "status": true,
+    "stock": 75,
+    "category": "Accesorios"
+  },
+  {
+    "title": "Pegamento Líquido",
+    "description": "Botella de pegamento líquido de 120 ml",
+    "code": "PEL008",
+    "price": 140,
+    "status": true,
+    "stock": 150,
+    "category": "Adhesivos"
   }
 ]

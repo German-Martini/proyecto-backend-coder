@@ -8,11 +8,11 @@ POST http://localhost:5000/api/products
 Content-Type: application/json
 
 {
-    "title": "Cuaderno A4",
-    "description": "Cuaderno rayado tamaño A4 con 80 hojas",
-    "code": "CUA123",
-    "price": 450,
+      "title": "Goma de borrar",
+    "description": "Goma de borrar blanca para lápiz",
+    "code": "GOM303",
+    "price": 50.00,
     "status": true,
-    "stock": 100,
-    "category": "Papelería"
+    "stock": 300,
+    "category": "Escritura"
 }
