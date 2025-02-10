@@ -2,6 +2,7 @@ import express from "express";
 import handlebars from "express-handlebars";
 import mongoose from "mongoose";
 import path from "path";
+import { engine } from "express-handlebars";
 import { productRoutes } from "./routes/products.routes.js";
 import { viewsRouter } from "./routes/views.routes.js";
 import { cartRoutes } from "./routes/cart.routes.js";
@@ -17,7 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 
-mongoose.connect("mongodb+srv://German:Germancoder@cluster0.6uioh.mongodb.net/")
+mongoose
+  .connect("mongodb+srv://German:Germancoder@cluster0.6uioh.mongodb.net/")
   .then(() => {
     console.log("Conectado a la base de datos");
   })
@@ -25,7 +27,22 @@ mongoose.connect("mongodb+srv://German:Germancoder@cluster0.6uioh.mongodb.net/")
     console.log("Error al acceder a la base de datos", error);
   });
 
-app.engine("hbs", handlebars.engine({ extname: "hbs", defaultLayout: "main" }));
+app.engine(
+  "hbs",
+  handlebars.engine({
+    extname: "hbs",
+    defaultLayout: "main",
+    helpers: {
+      add: (a, b) => a + b,
+    subtract: (a, b) => a - b,
+    gt: (a, b) => a > b,  
+    lt: (a, b) => a < b   
+    },
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+    },
+  })
+);
 app.set("view engine", "hbs");
 app.set("views", path.resolve(__dirname, "./views"));
 
@@ -42,18 +59,17 @@ export const io = new Server(server);
 io.on("connection", async (socket) => {
   console.log("A new user connected", socket.id);
 
-  try{
-  const products = await productModel.find();
-  socket.emit("init", products);
-  }catch(error){
+  try {
+    const products = await productModel.find();
+    socket.emit("init", products);
+  } catch (error) {
     console.log(error);
   }
   socket.on("addProduct", async (newProduct) => {
-
-    try{
+    try {
       const product = await productModel.create(newProduct);
       io.emit("newProduct", product);
-    } catch(error){
+    } catch (error) {
       console.log(error);
     }
   });
@@ -61,6 +77,7 @@ io.on("connection", async (socket) => {
 
 app.use((req, res, next) => {
   res.status(404).json({ error: "Ruta no encontrada" });
-});app.use((req, res, next) => {
+});
+app.use((req, res, next) => {
   res.status(404).json({ error: "Ruta no encontrada" });
 });

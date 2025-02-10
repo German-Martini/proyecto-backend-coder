@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { type } from "os";
+
 
 const cartSchema = new Schema({
   products: {
@@ -8,9 +8,8 @@ const cartSchema = new Schema({
         productId: { type: Schema.Types.ObjectId, ref: "Product", required: true },
         quantity: { type: Number, required: true, default: 1 }, 
       }
-    ],
-    required: true,
-    default: [{ productId: null, quantity: null }],
+    ],  
+    default: [],
   }
   
    

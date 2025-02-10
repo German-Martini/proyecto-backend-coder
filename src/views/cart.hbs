@@ -1,0 +1,18 @@
+<h1 class="d-flex justify-content-center">Carrito de Compras</h1>
+
+{{#if isEmpty}}
+    <p class="text-center text-muted">El carrito está vacío.</p>
+{{else}}
+    <ul class="list-group">
+        {{#each cart.products}}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>Producto:</strong> {{this.productId.title}} <br>
+                    <strong>Precio:</strong> ${{this.productId.price}}  
+                    <span class="badge bg-primary">Cantidad: {{this.quantity}}</span>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+{{/if}}
+

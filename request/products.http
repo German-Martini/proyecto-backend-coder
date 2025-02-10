@@ -8,8 +8,8 @@ POST http://localhost:5000/api/products
 Content-Type: application/json
 
 {
-      "title": "Goma de borrar",
-    "description": "Goma de borrar blanca para lápiz",
+      "title": "Sacapuntas",
+    "description": "sacapuntas para lápiz",
     "code": "GOM303",
     "price": 50.00,
     "status": true,

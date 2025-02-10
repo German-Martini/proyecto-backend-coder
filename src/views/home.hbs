@@ -1,4 +1,4 @@
-<h1 class="d-flex justify-content-center">Home page</h1>
+<h1 class="d-flex justify-content-center">Todos nuestros productos</h1>
 
 <ul class="list-group">
     {{#each products}}    
@@ -7,3 +7,15 @@
         </li>    
     {{/each}}
 </ul>
+
+<div class="d-flex justify-content-center mt-3">
+    {{#if (gt currentPage 1)}}
+        <a href="/?page={{subtract currentPage 1}}" class="btn btn-primary">Anterior</a>
+    {{/if}}
+
+    <span class="mx-3">Página {{currentPage}} de {{totalPages}}</span>
+
+    {{#if (lt currentPage totalPages)}}
+        <a href="/?page={{add currentPage 1}}" class="btn btn-primary">Siguiente</a>
+    {{/if}}
+</div>
