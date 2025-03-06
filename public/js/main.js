@@ -26,3 +26,14 @@ function createProduct(product) {
     li.className = "list-group-item";
     return li;
 }
+
+usermodel.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const user = {
+        name: usermodel.name.value,
+        email: usermodel.email.value,
+        password: usermodel.password.value,
+    };
+    socket.emit("newUser", user);
+    usermodel.reset();
+});

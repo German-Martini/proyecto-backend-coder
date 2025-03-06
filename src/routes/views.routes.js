@@ -5,22 +5,8 @@ import { productModel } from "../models/product.model.js";
 
 export const viewsRouter = Router();
 
-viewsRouter.get("/products", async (req, res) => {
-    try {
-        const products = await productModel.find();
-        res.render("home", { products });
-    } catch (error) {
-        res.status(500).json({ error: "Error al obtener los productos" });
-    }
-});
+
    
-
-viewsRouter.get("/realtime", (req, res) => {
-    res.render("realtimeProducts");
-});
-
-
-
 viewsRouter.get("/", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = 5; 
@@ -44,9 +30,6 @@ viewsRouter.get("/", async (req, res) => {
   });
   
 
-viewsRouter.get("/realtime", (req, res) => {
-  res.render("realtimeProducts");
-});
 
 
 
@@ -65,3 +48,15 @@ viewsRouter.get("/cart", async (req, res) => {
         res.status(500).send("Error en el servidor");
     }
 });
+
+viewsRouter.get("/signUp", async (req, res) => {
+  res.render("signUp");
+});
+
+viewsRouter.get("/signIn", async (req, res) => {
+  res.render("signIn");
+});
+
+viewsRouter.get("/profile", async (req, res) => {
+  res.render("profile");
+}); 
