@@ -1,12 +1,33 @@
 import jwt from "jsonwebtoken";	
+import passport from "passport";
 import { Router } from "express";
 import { userModel } from "../models/user.model.js";
-import bcrypt from "bcrypt";
-import { hashPassword } from "../utils/password.utils.js";
-// import { hashPassword, comparePassword } from "../utils/password.utils.js";
+import { hashPassword, comparePassword } from "../utils/password.utils.js";
+import {COOKIE_SECRTA} from "../server.js"
+
 
 export const userRoutes = Router();
-const secret = "secret";
+
+
+userRoutes.get("/cookies", (req, res) => {
+  const token = jwt.sign(
+    {
+      id: "abcd",
+      username: "test",
+      role: "admin",
+    },
+    COOKIE_SECRTA,
+    { expiresIn: "5m" }
+  );
+
+  res.cookie("token", token, {
+    httpOnly: true,
+    maxAge: 900000,
+  });
+
+  res.json({ message: "Cookie enviada", token });
+});
+
 
 userRoutes.post("/register", async (req, res) => {
   try {
@@ -16,16 +37,15 @@ userRoutes.post("/register", async (req, res) => {
       return res.status(400).json({ error: "Faltan datos" });
     }
 
-    const hashPassword = await bcrypt.hash(password, 10);
+    const PasswordHash = await hashPassword(password);
 
-    req.body.password = hashPassword;   
 
     const user = await userModel.create({
       first_name,
       last_name,
       email,
       age,
-      password,
+      password: PasswordHash,
     });
 
     res.status(201).json({message:"usuario creado exitosamente", user});
@@ -82,19 +102,53 @@ userRoutes.post("/login", async (req, res) => {
       return res.status(404).json({ error: "Usuario no encontrado" });
     }
 
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+    const isPasswordCorrect = await comparePassword(password, user.password);
 
     if (!isPasswordCorrect) {
       return res.status(401).json({ error: "Contraseña incorrecta" });
     }
 
-    const token = jwt.sign({ id: user._id, role: user.role, email: user.email }, secret, {
+    const token = jwt.sign({ id: user._id, role: user.role, email: user.email }, COOKIE_SECRTA  , {
       expiresIn: "1h",
     }); 
 
-    res.cookie("token", token, { httpOnly: true });
-    res.redirect("/");
+    res.cookie("token", token, { httpOnly: true, maxAge: 900000, });
+    res.json({message: "Login exitoso", token })
   } catch (error) {
     res.status(500).json({ error: "Error al autenticar" });
   }
 }); 
+
+userRoutes.post("/restorePassword", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await userModel.findOne({ email }).lean();
+    if (!user) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    const PasswordHash = await hashPassword(password);
+
+    await userModel.updateOne({ _id: user._id }, { password: PasswordHash });
+
+    res.redirect("/login");
+  } catch (error) {
+    res.status(500).json({ error: "Error al autenticar" });
+  } 
+});
+
+
+userRoutes.post("/logout", async (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
+});
+
+userRoutes.get('/current', passport.authenticate('jwt', {session:false}),(req,res)=>{
+  res.json({message: req.user})
+})
+
+
+userRoutes.get('/admin',passport.authenticate('jwt', {session:false}),(req,res)=>{
+  res.json({message:'Acceso admin'})
+} )

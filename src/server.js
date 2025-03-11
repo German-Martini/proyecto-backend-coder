@@ -4,6 +4,8 @@ import Handlebars from "handlebars";
 import mongoose from "mongoose";
 import path from "path";
 import cookieParser from 'cookie-parser';
+import passport from "passport";
+import { initializePassport } from "./utils/passport.config.js";
 import { productRoutes } from "./routes/products.routes.js";
 import { viewsRouter } from "./routes/views.routes.js";
 import { cartRoutes } from "./routes/cart.routes.js";
@@ -13,7 +15,7 @@ import { userRoutes } from "./routes/user.routes.js";
 
 const app = express();
 const PORT = 5000;
-const COOKIE_SECRTA = "secret_cookie";
+export const  COOKIE_SECRTA = "secret_cookie";
 
 
 
@@ -21,6 +23,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(COOKIE_SECRTA));
 app.use(express.static(path.resolve(__dirname, "../public")));
+initializePassport();
+app.use(passport.initialize())
+
+
 
 
 mongoose

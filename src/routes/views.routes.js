@@ -49,6 +49,8 @@ viewsRouter.get("/cart", async (req, res) => {
     }
 });
 
+// Vista usuario
+
 viewsRouter.get("/signUp", async (req, res) => {
   res.render("signUp");
 });
