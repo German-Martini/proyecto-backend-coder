@@ -4,6 +4,7 @@ import { Router } from "express";
 import { userModel } from "../models/user.model.js";
 import { hashPassword, comparePassword } from "../utils/password.utils.js";
 import {COOKIE_SECRTA} from "../server.js"
+import { authenticateJWT } from "../utils/passport.config.js";
 
 
 export const userRoutes = Router();
@@ -152,3 +153,23 @@ userRoutes.get('/current', passport.authenticate('jwt', {session:false}),(req,re
 userRoutes.get('/admin',passport.authenticate('jwt', {session:false}),(req,res)=>{
   res.json({message:'Acceso admin'})
 } )
+
+userRoutes.get('/profile', authenticateJWT, async (req, res) => {
+  try {
+      const user = await userModel.findOne({ email }).lean();
+
+      if (!user) {
+          return res.status(404).send('User not found');
+      }
+
+      res.render('profile', {
+          first_name: user.first_name,
+          last_name: user.last_name,
+          email: user.email,
+          age: user.age,
+          cart_id: user.cart_id
+      });
+  } catch (error) {
+      res.status(500).send('Server error');
+  }
+});

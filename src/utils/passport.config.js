@@ -30,3 +30,20 @@ export function initializePassport() {
   function cookieExtractor(req) {
     return req.cookies.token ? req.cookies.token : null;
   }
+
+
+  export const authenticateJWT = (req, res, next) => {
+    const token = req.cookies.authToken; 
+
+    if (!token) {
+        return res.redirect('/login'); 
+    }
+
+    jwt.verify(token, COOKIE_SECRTA, (err, decoded) => {
+        if (err) {
+            return res.status(403).send('Invalid token');
+        }
+        req.user = decoded; 
+        next();
+    });
+};

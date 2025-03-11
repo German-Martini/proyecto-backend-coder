@@ -7,21 +7,17 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     };
   
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("http://localhost:5000/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
   
       const result = await response.json();
-      if (response.ok) {
-        alert("Login successful");
-        window.location.href = "/dashboard"; // Redirige tras login exitoso
-      } else {
-        alert("Error: " + result.message);
-      }
+      
+      window.location.href = "http://localhost:5000/api/users/profile"; 
+
     } catch (error) {
       console.error("Error during login:", error);
-      alert("Login failed");
     }
   });

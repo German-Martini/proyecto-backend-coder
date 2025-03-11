@@ -59,6 +59,6 @@ viewsRouter.get("/signIn", async (req, res) => {
   res.render("signIn");
 });
 
-viewsRouter.get("/profile", async (req, res) => {
-  res.render("profile");
+viewsRouter.get("/UserProfile", async (req, res) => {
+  res.render("UserProfile");
 }); 
