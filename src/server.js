@@ -11,10 +11,11 @@ import { viewsRouter } from "./routes/views.routes.js";
 import { cartRoutes } from "./routes/cart.routes.js";
 import { __dirname } from "./dirname.js";
 import { userRoutes } from "./routes/user.routes.js";
+import { connect } from "mongoose";
 
+import { CONFIG } from "./config/config.js";
 
 const app = express();
-const PORT = 5000;
 export const  COOKIE_SECRTA = "secret_cookie";
 
 
@@ -27,10 +28,7 @@ initializePassport();
 app.use(passport.initialize())
 
 
-
-
-mongoose
-  .connect("mongodb+srv://German:Germancoder@cluster0.6uioh.mongodb.net/")
+connect(CONFIG.MONGODB_URI)
   .then(() => {
     console.log("Conectado a la base de datos");
   })
@@ -73,8 +71,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/users", userRoutes);
 
-const server = app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+const server = app.listen(CONFIG.PORT, () => {
+  console.log(`Server is running on port http://localhost:${CONFIG.PORT}`);
 });
 
 
@@ -85,3 +83,4 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   res.status(404).json({ error: "Ruta no encontrada" });
 });
+console.log('MONGO_URI:', process.env.MONGO_URI);
